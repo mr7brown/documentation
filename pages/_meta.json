@@ -1,7 +1,17 @@
 {
   "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "---": {
+    "type": "separator"
+  },
+  "developer": "Developer Docs",
+  "specifications": "Technical Specifications",
+  "visuals": "Visual Assets",
+  "data": "Storytelling with Data",
+  
+  "another": {
+    "display": "hidden"
+  },
+  
   "about": {
     "title": "About",
     "type": "page"
@@ -9,7 +19,7 @@
   "contact": {
     "title": "Contact ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "mailto:ashtonbrownmba@gmail.com",
     "newWindow": true
   }
 }
