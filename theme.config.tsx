@@ -57,11 +57,7 @@ footer: {
 
   sidebar:
 {
-  defaultMenuCollapseLevel:1,
-  autoCollapse: true,
-  toggleButton: true,
   
-
   titleComponent: ({ title, type }) => {
     if (type === 'separator') {
       return (
