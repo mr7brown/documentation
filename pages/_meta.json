@@ -1,13 +1,16 @@
 {
   "index": "Introduction",
   "about": {
-    "title": "About",
-    "type": "page"
+    "title": "Resume ↗",
+    "type": "page",
+    "href": "https://drive.google.com/file/d/1BaiCo8g8DZeD1Da1IWaaney1msv4-Z48/view?usp=drive_link",
+    "newWindow": true
+    
   },
   "contact": {
     "title": "Contact ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "mailto:ashtonbrownmba@gmail.com",
     "newWindow": true
   }
 }
