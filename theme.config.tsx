@@ -57,6 +57,7 @@ footer: {
 
   sidebar:
 {
+  defaultMenuCollapseLevel: 1,
   
   titleComponent: ({ title, type }) => {
     if (type === 'separator') {
@@ -68,13 +69,13 @@ footer: {
       return <> ⌘ Developer Docs</>;
     }
     if (title === 'TechnicalSpecifications') {
-      return <> ⛭ {title}</>;
+      return <> ⛭ Technical Specifications</>;
     }
     if (title === 'VisualAssets') {
-      return <> ⛶ {title}</>;
+      return <> ⛶ Visualizations</>;
     }
     if (title === 'Storytelling') {
-      return <> ⛁ {title}</>;
+      return <> ⛁ Storytelling with Data</>;
     }
     
     return <> {title}</>;
