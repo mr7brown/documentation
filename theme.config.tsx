@@ -68,16 +68,16 @@ footer: {
         <div style={{ background: 'cyan', textAlign: 'center' }}>{title}</div>
       );
     }
-    if (title === 'Developer Docs') {
-      return <> ⌘ {title}</>;
+    if (title === 'Developer') {
+      return <> ⌘ Developer Docs</>;
     }
-    if (title === 'Technical Specifications') {
+    if (title === 'TechnicalSpecifications') {
       return <> ⛭ {title}</>;
     }
-    if (title === 'Visual Assets') {
+    if (title === 'VisualAssets') {
       return <> ⛶ {title}</>;
     }
-    if (title === 'Storytelling with Data') {
+    if (title === 'Storytelling') {
       return <> ⛁ {title}</>;
     }
     
