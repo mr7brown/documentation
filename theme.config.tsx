@@ -77,6 +77,9 @@ footer: {
     if (title === 'Storytelling') {
       return <> ⛁ Storytelling with Data</>;
     }
+     if (title === 'Release') {
+      return <> HBO Release Notes</>;
+    }
     
     return <> {title}</>;
 
