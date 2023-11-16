@@ -1,0 +1,24 @@
+
+
+.note {
+    font-size: 80%;
+    display: block;
+    color: #dbdbdb;
+    background-color: #282828;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    border-radius: 5px;
+    border-left: 4px solid #6f6f6f;
+    margin-bottom: 10px;
+    margin-top: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 2%;
+    padding-bottom: 2%; 
+}
+
+.note::before {
+    content: 'ⓘ NOTE: ';
+    font-weight: bold;
+    
+  }
