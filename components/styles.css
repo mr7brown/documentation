@@ -11,6 +11,10 @@ nav a {
 body {
     background-color: #161616!important;
 }
+
+:is(html[class~=dark] .dark\:nx-bg-dark) {
+    background-color: #161616!important;
+}
 .note {
     font-size: 80%;
     display: block;
