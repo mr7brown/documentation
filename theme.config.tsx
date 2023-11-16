@@ -10,12 +10,12 @@ darkMode: false,
   project: {
     link: 'https://github.com/mr7brown',
   },
-  chat: {
-    link: 'https://www.linkedin.com/in/ashton-brown-mba-6000238a/',
-    icon: (
-      <FaLinkedin />
-    )
-  },
+  // chat: {
+  //   link: 'https://www.linkedin.com/in/ashton-brown-mba-6000238a/',
+  //   icon: (
+  //     <FaLinkedin />
+  //   )
+  // },
   // docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   
 footer: {
