@@ -1,20 +1,44 @@
-nav {
-    background-color: #161616!important;
-    border-bottom: 1px solid #6f6f6f;
-    opacity: 0.5;
+p, li, ol {
+    color: #e2e2e2 !important;
 }
 
-nav a {
-    opacity: 1;
+nav {
+    background-color: #1c1c1c!important;
+    border-bottom: 0.5px solid #505050;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    
+}
+
+footer {
+    background-color: #1c1c1c!important;
+    border-top: 0.5px solid #505050;
+}
+
+.nx-bg-transparent {
+    background-color: #1c1c1c!important;
+    z-index: 2;
+    max-width: 100% !important;
+
+}
+
+.nx-max-w-\[90rem\] {
+    max-width: 100% !important;
 }
 
 body {
-    background-color: #161616!important;
+    background-color: #1c1c1c!important;
 }
 
 :is(html[class~=dark] .dark\:nx-bg-dark) {
-    background-color: #161616!important;
+    background-color: #1c1c1c!important;
+    box-shadow: none !important;
 }
+
+:is([dir=ltr] .ltr\:-nx-mr-4) {
+    background-color: #1c1c1c!important;
+}
+
 .note {
     font-size: 80%;
     display: block;

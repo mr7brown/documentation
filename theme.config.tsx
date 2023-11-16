@@ -83,6 +83,9 @@ feedback: {
      if (title === 'Release') {
       return <> HBO Release Notes</>;
     }
+    if (title === 'GitLab') {
+      return <> HBO GitLab Config</>;
+    }
     
     return <> {title}</>;
 
