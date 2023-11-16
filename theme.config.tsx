@@ -1,7 +1,7 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import siteLogo from "./static/logo.svg";
-import { ImLinkedin2 } from "react-icons/im";
+
 
 const config: DocsThemeConfig = {
 
@@ -10,12 +10,12 @@ darkMode: false,
   project: {
     link: 'https://github.com/mr7brown',
   },
-  chat: {
-    link: 'https://www.linkedin.com/in/ashton-brown-mba-6000238a/',
-    icon: (
-      <ImLinkedin2 />
-    )
-  },
+  // chat: {
+  //   link: 'https://www.linkedin.com/in/ashton-brown-mba-6000238a/',
+  //   icon: (
+  //     <ImLinkedin2 />
+  //   )
+  // },
   // docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   
 footer: {
