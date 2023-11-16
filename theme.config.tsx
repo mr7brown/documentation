@@ -21,9 +21,7 @@ const config: DocsThemeConfig = {
   // },
   // docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   
-  darkMode: false,
-  
-  footer: {
+footer: {
     text: (
       <span>
        Ashton G. Brown | {new Date().getFullYear()} ©{' '}

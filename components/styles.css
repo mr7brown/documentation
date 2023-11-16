@@ -1,17 +1,5 @@
 
-nav {
-    background-color: #161616!important;
-    border-bottom: 1px solid #6f6f6f;
-    opacity: 0.5;
-}
 
-nav a {
-    opacity: 1;
-}
-
-body {
-    background-color: #161616!important;
-}
 .note {
     font-size: 80%;
     display: block;
@@ -33,8 +21,4 @@ body {
     content: 'ⓘ NOTE: ';
     font-weight: bold;
     
-  }
-
-  code, pre  {
-    background-color: #282828 !important;
   }
