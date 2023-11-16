@@ -3,6 +3,6 @@ const withNextra = require('nextra')({
   themeConfig: './theme.config.tsx',
 })
 
-const hljs = require('highlight.js');
-
 module.exports = withNextra()
+
+// Test comment
