@@ -1,9 +1,8 @@
-
 ## Overview
 
 This guide provides instructions for establishing a connection with the GitLab repo for the Partner Hub. By the end, you will:
 
-1. Clone the `/partnerhub/web` repo.
+1. Clone the `/partnerhub/web{:bash}` repo.
 2. Validate SSH key pair.
 3. Push a test commit.
 
@@ -11,9 +10,9 @@ After successfully pushing a test commit, you can begin contributing to the Part
 
 ## Clone the Partner Hub Repo
 
-To begin, you need to clone the `/partnerhub/web` repo. From your terminal, run the following command:
+To begin, you need to clone the `/partnerhub/web{:bash}` repo. From your terminal, run the following command:
 
-```
+```bash copy
 $ git clone git@git.REDACTED:/partnerhub/web.git
 ```
 
@@ -31,7 +30,7 @@ To generate a new SSH key:
 
 1. Open a terminal and run:
 
-```
+```bash copy
 # Use your desktop account
 $ ssh-keygen -t ed25519 -C "email@example.com"
 ```
@@ -42,19 +41,19 @@ $ ssh-keygen -t ed25519 -C "email@example.com"
 
 1. To copy your SSH key, run:
 
-```
+```bash copy
 $ pbcopy < ~/.ssh/id_ed25519.pub
 ```
 
 2. Navigate to **SSH Keys** (link has been redacted) in your GitLab **User Settings**.
-3. Paste your copied key in the text box, it should look something like this: `47:xf:71:x7:02:1x:7x:x9:9x:x3:xx:7x:xx:6x:0x:xx`.
+3. Paste your copied key in the text box, it should look something like this: `47:xf:71:x7:02:1x:7x:x9:9x:x3:xx:7x:xx:6x:0x:xx{:bash}`.
 4. Enter a descriptive title and click **Add key**.
 
 ## Testing connection
 
 To test if you correctly added an SSH key to your GitLab profile, run:
 
-```
+```bash copy
 # The actual GitLab instance has been redacted.
 $ ssh -T git@gitlab.com
 ```
@@ -69,15 +68,15 @@ With the connection validated, you should be able to add commits to the `/partne
 
 1. Run:
 
-```
+```bash copy
 $ git checkout -b test
 ```
 
 2. Create a Markdown file with your username as the title `<user@hbo.md>` in the `src/content/test/` folder.
 3. Commit changes :
 
-```
-$ git add <filename>
+```bash copy
+$ git add /<filename>
 $ git commit -m "<commit message>"
 $ git push
 ```
