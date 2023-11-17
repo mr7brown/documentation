@@ -65,10 +65,10 @@ feedback: {
       );
     }
     if (title === 'Developer') {
-      return <> ⌘ Developer Docs</>;
+      return <> ⌘ DEVELOPER DOCS</>;
     }
     if (title === 'TechnicalSpecifications') {
-      return <> ⛭ Technical Specifications</>;
+      return <> ⛭ SPECIFICATIONS</>;
     }
     if (title === 'Audio') {
       return <> Raspberry Pi Audio Config</>;
@@ -78,10 +78,10 @@ feedback: {
     }
     
     if (title === 'VisualAssets') {
-      return <> ⛶ Visualizations</>;
+      return <> ⛶ VISUALIZATIONS</>;
     }
     if (title === 'Storytelling') {
-      return <> ⛁ Storytelling with Data</>;
+      return <> ⛁ STORYTELLING W/ DATA</>;
     }
      if (title === 'Release') {
       return <> HBO Release Notes</>;
