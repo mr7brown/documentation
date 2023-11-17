@@ -93,6 +93,9 @@ feedback: {
     if (title === 'GitLab') {
       return <> HBO GitLab Config</>;
     }
+    if (title === 'Primeday') {
+      return <> Prime Day Research</>;
+    }
     
    
     return <> {title}</>;

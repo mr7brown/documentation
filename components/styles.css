@@ -10,6 +10,40 @@ nav {
     
 }
 
+ul 
+{ 
+    list-style-type: '- ' !important;
+    
+}
+
+.test ol {
+    list-style: none;
+    counter-reset: item;
+    padding-right: .25em !important;
+    padding-left: .25em !important;
+  }
+  .test li {
+    counter-increment: item;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding-right: .25em;
+    padding-left: .25em;
+  }
+  .test li:before {
+    margin-right: 10px;
+    content: counter(item);
+    background: #282828;
+    border: 1px solid #2e2e2e;
+    border-radius: 15%;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: .9em;
+    width: 1.5em;
+    color: #505050;
+
+  }
+
 footer {
     background-color: #1c1c1c!important;
     border-top: 0.5px solid #505050;
