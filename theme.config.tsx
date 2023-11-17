@@ -70,6 +70,10 @@ feedback: {
     if (title === 'TechnicalSpecifications') {
       return <> ⛭ Technical Specifications</>;
     }
+    if (title === 'Audio') {
+      return <> Raspberri Pi Audio Config</>;
+    }
+    
     if (title === 'VisualAssets') {
       return <> ⛶ Visualizations</>;
     }
@@ -79,10 +83,17 @@ feedback: {
      if (title === 'Release') {
       return <> HBO Release Notes</>;
     }
+    if (title === 'Sdk') {
+      return <> Embedding The Google Assistant</>;
+    }
+    if (title === 'Rpi') {
+      return <> Raspberry Pi Config</>;
+    }
     if (title === 'GitLab') {
       return <> HBO GitLab Config</>;
     }
     
+   
     return <> {title}</>;
 
     
