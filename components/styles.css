@@ -53,6 +53,11 @@ ul
 
   }
 
+  .test ul {
+    list-style-type: '- ' !important;
+  }
+  
+
   :is(html[class~=dark] .dark\:nx-bg-primary-400\/10) {
     background-color: #1c1c1c !important;
 }
@@ -111,6 +116,11 @@ body {
     content: 'ⓘ NOTE: ';
     font-weight: bold;
     
+  }
+
+  .note a {
+    color: #0284DA;
+    text-decoration: underline;
   }
 
   code, pre  {

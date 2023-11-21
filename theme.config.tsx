@@ -70,10 +70,10 @@ feedback: {
     if (title === 'TechnicalSpecifications') {
       return <> ⛭ SPECIFICATIONS</>;
     }
-    if (title === 'Audio') {
+    if (title === 'Audioconfig') {
       return <> Raspberry Pi Audio Config</>;
     }
-    if (title === 'Rpi') {
+    if (title === 'Raspberrypi') {
       return <> Raspberry Pi Hardware Config</>;
     }
     
@@ -86,15 +86,24 @@ feedback: {
      if (title === 'Release') {
       return <> HBO Release Notes</>;
     }
-    if (title === 'Sdk') {
+    if (title === 'Googlesdk') {
       return <> Embedding The Google Assistant</>;
     }
    
-    if (title === 'GitLab') {
+    if (title === 'Gitlabconfig') {
       return <> HBO GitLab Config</>;
     }
     if (title === 'Primeday') {
       return <> Prime Day Research</>;
+    }
+    if (title === 'Multichannelinvestment') {
+      return <> Multichannel Investment Research</>;
+    }
+    if (title === 'Sdr') {
+      return <> HBO SDR Specification</>;
+    }
+    if (title === 'Mmc') {
+      return <> Media Manifest Core</>;
     }
     
    
