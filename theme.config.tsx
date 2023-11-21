@@ -65,7 +65,7 @@ feedback: {
       );
     }
     if (title === 'Developer') {
-      return <> ⌘ DEVELOPER DOCS</>;
+      return <> ⌘ DOCS-AS-CODE</>;
     }
     if (title === 'TechnicalSpecifications') {
       return <> ⛭ SPECIFICATIONS</>;
@@ -78,7 +78,7 @@ feedback: {
     }
     
     if (title === 'VisualAssets') {
-      return <> ⛶ VISUALIZATIONS</>;
+      return <> ⛶ DESIGN</>;
     }
     if (title === 'Storytelling') {
       return <> ⛁ STORYTELLING W/ DATA</>;
@@ -104,6 +104,21 @@ feedback: {
     }
     if (title === 'Mmc') {
       return <> Media Manifest Core</>;
+    }
+    if (title === 'dev') {
+      return <> ⌨ DEVELOPMENT</>;
+    }
+    if (title === 'presentations') {
+      return <> ✩ PRESENTATIONS</>;
+    }
+    if (title === 'Maximages') {
+      return <> HBO Max Image Specificaions Doc Site</>;
+    }
+    if (title === 'Assetsecurity') {
+      return <> Sumo Logic Asset Security</>;
+    }
+    if (title === 'Fbdeck') {
+      return <> Facebook One-pager</>;
     }
     
    
