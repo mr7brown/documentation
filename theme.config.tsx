@@ -10,12 +10,12 @@ darkMode: false,
   project: {
     link: 'https://github.com/mr7brown',
   },
-  chat: {
-    link: 'https://www.linkedin.com/in/ashton-brown-mba-6000238a/',
-    icon: (
-       <img src="/static/linkedin.svg" color="red" alt="Ashton Brown logo" width="25em" />
-    )
-  },
+  // chat: {
+  //   link: 'https://www.linkedin.com/in/ashton-brown-mba-6000238a/',
+  //   icon: (
+  //     <ImLinkedin2 />
+  //   )
+  // },
   // docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   
 footer: {
@@ -112,7 +112,7 @@ feedback: {
       return <> ✩ PRESENTATIONS</>;
     }
     if (title === 'Maximages') {
-      return <> HBO Max Image Specifications Site</>;
+      return <> HBO Max Image Specificaions Doc Site</>;
     }
     if (title === 'Assetsecurity') {
       return <> Sumo Logic Asset Security</>;
@@ -120,21 +120,7 @@ feedback: {
     if (title === 'Fbdeck') {
       return <> Facebook One-pager</>;
     }
-    if (title === 'Encodingprofile') {
-      return <> HBO Max Encoding Profile</>;
-    }
-    if (title === 'Next') {
-      return <> NextJS Portfolio</>;
-    }
-    if (title === 'Filename') {
-      return <> HBO Max Filename</>;
-    }
-    if (title === 'Allresearch') {
-      return <> Published Research</>;
-    }
-    if (title === 'Siem') {
-      return <> Security Information and Event Management</>;
-    }
+    
    
     return <> {title}</>;
 
