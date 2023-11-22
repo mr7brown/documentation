@@ -129,6 +129,12 @@ feedback: {
     if (title === 'Filename') {
       return <> HBO Max Filename</>;
     }
+    if (title === 'Allresearch') {
+      return <> Published Research</>;
+    }
+    if (title === 'Siem') {
+      return <> Security Information and Event Management</>;
+    }
    
     return <> {title}</>;
 
