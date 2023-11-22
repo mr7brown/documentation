@@ -89,10 +89,18 @@ body {
 :is(html[class~=dark] .dark\:nx-bg-dark) {
     background-color: #1c1c1c!important;
     box-shadow: none !important;
+    display: none;
 }
 
 :is([dir=ltr] .ltr\:-nx-mr-4) {
     background-color: #1c1c1c!important;
+    border-left: 0.5px solid #505050 !important;
+    padding-left: 1.5em;
+}
+
+:is([dir=ltr] .ltr\:-nx-mr-4) ul li{
+  list-style-type:  none;
+  
 }
 
 .note {
@@ -183,4 +191,3 @@ body {
   img {
     border-radius: 20px;
   }
-
