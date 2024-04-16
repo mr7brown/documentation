@@ -5,7 +5,7 @@ import siteLogo from "./static/logo.svg";
 
 const config: DocsThemeConfig = {
 
-darkMode: false,
+// darkMode: false,
   
   project: {
     link: 'https://github.com/mr7brown',
