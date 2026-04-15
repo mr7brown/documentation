@@ -1,0 +1,7 @@
+{
+  "name": "intersection-observer",
+  "version": "0.12.3",
+  "description": "No-op stub: native IntersectionObserver is widely available; silences deprecated polyfill install.",
+  "main": "index.js",
+  "license": "MIT"
+}
