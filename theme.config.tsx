@@ -1,9 +1,18 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
-import siteLogo from "./static/logo.svg";
-
-
 const config: DocsThemeConfig = {
+  /* Apple-style link / accent (matches apple.com blues in hsl() theme tokens) */
+  primaryHue: { light: 211, dark: 211 },
+  primarySaturation: { light: 100, dark: 88 },
+
+  /* Default to dark so Nextra + OS agree with the black product-page shell */
+  nextThemes: {
+    defaultTheme: "dark",
+  },
+
+  search: {
+    placeholder: "Search portfolio...",
+  },
 
 // darkMode: false,
   
@@ -20,19 +29,30 @@ const config: DocsThemeConfig = {
   
 footer: {
     text: (
-      <span>
-       Ashton G. Brown | {new Date().getFullYear()} ©{' '}
+      <span className="apple-footer-text">
+        Ashton G. Brown | {new Date().getFullYear()} ©{" "}
       </span>
-    )
+    ),
   },
 
   logo: (
-    <>
-       <img src="/static/logo.png" alt="Ashton Brown logo" width="40em" />
-      <span style={{ marginLeft: '.4em', fontWeight: 300, color: "#0284DA", }}>
-        DOCS
-      </span>
-    </>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="apple-nav-home-icon"
+      role="img"
+      aria-label="Home"
+    >
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      <polyline points="9 22 9 12 15 12 15 22" />
+    </svg>
   ),
 
   head: (
@@ -59,10 +79,8 @@ feedback: {
   defaultMenuCollapseLevel: 1,
   
   titleComponent: ({ title, type }) => {
-    if (type === 'separator') {
-      return (
-        <div style={{ background: 'cyan', textAlign: 'center' }}>{title}</div>
-      );
+    if (type === "separator") {
+      return <div className="apple-sidebar-separator">{title}</div>;
     }
     if (title === 'Developer') {
       return <> ⌘ DOCS-AS-CODE</>;

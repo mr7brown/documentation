@@ -1,6 +1,9 @@
 .counter {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 2px 6px;
+  border: 1px solid var(--apple-border, #d2d2d7);
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
   margin: 12px 0 0;
+  background: var(--apple-surface, #fff);
+  color: var(--apple-text, #1d1d1f);
+  font-size: 0.875rem;
 }

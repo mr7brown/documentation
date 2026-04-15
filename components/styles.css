@@ -1,0 +1,554 @@
+/*
+ * THEME / SHELL — read before editing
+ * ---------------------------------------------------------------------------
+ * Blank white screen usually came from: (1) SSR <html> without `dark` so Nextra
+ * used light-branch colors (white nav blur, slate-900 text) on a black body;
+ * (2) broad selectors like `aside… .nx-bg-white` breaking Headless UI surfaces.
+ * Mitigations: `pages/_document.js` (default dark + critical fallback <style>),
+ * never blanket-override `.nx-bg-white` under sidebar, prefer fallbacks on
+ * `var(--apple-*, #hex)`, keep `suppressHydrationWarning` on html/body.
+ * ---------------------------------------------------------------------------
+ */
+
+/* Apple product-page (dark) — matches M5-style blocks: #000 bg, #fff / #86868b type, #0071e3 accent */
+
+:root {
+  --apple-text: #ffffff;
+  --apple-text-secondary: #86868b;
+  --apple-text-tertiary: #6e6e73;
+  --apple-bg: #000000;
+  --apple-surface: #1d1d1f;
+  --apple-border: #424245;
+  --apple-border-subtle: #2d2d2f;
+  --apple-link: #0071e3;
+  --apple-link-hover: #0077ed;
+  --apple-code-bg: #1d1d1f;
+  --apple-nav-border: rgba(255, 255, 255, 0.12);
+  --apple-nav-chrome: #1d1d1f;
+  --apple-nav-chrome-fade: rgba(29, 29, 31, 0.86);
+  --apple-nav-link: rgba(245, 245, 247, 0.88);
+  --apple-shadow: 0 2px 20px rgba(0, 0, 0, 0.55);
+}
+
+/* Optional: if visitors switch to light in the theme toggle */
+html.light {
+  --apple-text: #1d1d1f;
+  --apple-text-secondary: #6e6e73;
+  --apple-text-tertiary: #86868b;
+  --apple-bg: #f5f5f7;
+  --apple-surface: #ffffff;
+  --apple-border: #d2d2d7;
+  --apple-border-subtle: #e8e8ed;
+  --apple-link: #0066cc;
+  --apple-link-hover: #0077ed;
+  --apple-code-bg: #f5f5f7;
+  --apple-nav-border: rgba(0, 0, 0, 0.08);
+  --apple-nav-chrome: #fbfbfd;
+  --apple-nav-chrome-fade: rgba(251, 251, 253, 0.9);
+  --apple-nav-link: rgba(29, 29, 31, 0.72);
+  --apple-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+html[class~="dark"] {
+  --apple-text: #ffffff;
+  --apple-text-secondary: #86868b;
+  --apple-text-tertiary: #6e6e73;
+  --apple-bg: #000000;
+  --apple-surface: #1d1d1f;
+  --apple-border: #424245;
+  --apple-border-subtle: #2d2d2f;
+  --apple-link: #0071e3;
+  --apple-link-hover: #0077ed;
+  --apple-code-bg: #1d1d1f;
+  --apple-nav-border: rgba(255, 255, 255, 0.12);
+  --apple-shadow: 0 2px 20px rgba(0, 0, 0, 0.55);
+}
+
+html {
+  /* Nextra scroll-padding + layout; keep in sync with visual bar height */
+  --nextra-navbar-height: 2.75rem;
+  font-family:
+    "SF Pro Text",
+    "SF Pro Display",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  font-synthesis: none;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--apple-bg, #000000);
+}
+
+/* Let the UA follow the active theme; avoid forcing dark on <html> before class is set */
+html.dark,
+html[class~="dark"] {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+body {
+  font-family: inherit;
+  line-height: 1.47059;
+  background-color: var(--apple-bg, #000000) !important;
+  color: var(--apple-text, #f5f5f7) !important;
+}
+
+#__next {
+  min-height: 100vh;
+  background-color: var(--apple-bg, #000000);
+}
+
+article.nextra-content,
+article.nextra-content main {
+  background-color: var(--apple-bg, #000000) !important;
+}
+
+/* Beat Tailwind slate on headings before/without `dark` on <html> */
+.nextra-content :is(h1, h2, h3, h4).nx-text-slate-900 {
+  color: var(--apple-text) !important;
+}
+
+/* Top bar links: soft “global nav” gray (not body copy gray) */
+.nextra-nav-container .nx-text-gray-600,
+.nextra-nav-container .nx-text-gray-800,
+.nextra-nav-container .nx-text-gray-900 {
+  color: var(--apple-nav-link) !important;
+}
+
+.nextra-nav-container .hover\:nx-text-gray-800:hover,
+.nextra-nav-container .hover\:nx-text-gray-900:hover,
+.nextra-nav-container .hover\:nx-text-black:hover {
+  color: var(--apple-text) !important;
+}
+
+aside.nextra-sidebar-container .nx-text-gray-600,
+aside.nextra-sidebar-container .nx-text-gray-500,
+aside.nextra-sidebar-container .nx-text-gray-400 {
+  color: var(--apple-text-secondary) !important;
+}
+
+aside.nextra-sidebar-container .hover\:nx-text-gray-900:hover,
+aside.nextra-sidebar-container .hover\:nx-text-gray-800:hover,
+aside.nextra-sidebar-container .hover\:nx-text-gray-50:hover {
+  color: var(--apple-text) !important;
+}
+
+/* Main column — marketing-style hierarchy */
+.nextra-content {
+  color: var(--apple-text) !important;
+  font-size: 1rem;
+  line-height: 1.5882;
+}
+
+.nextra-content :where(p, li) {
+  color: var(--apple-text-secondary);
+  font-size: 1rem;
+  line-height: 1.5882;
+}
+
+.nextra-content :where(strong) {
+  font-weight: 600;
+  color: var(--apple-text);
+}
+
+.nextra-content :where(h1) {
+  letter-spacing: -0.022em;
+  font-weight: 600;
+  color: var(--apple-text);
+  font-size: clamp(2rem, 1.5rem + 1.5vw, 3.25rem);
+  line-height: 1.05;
+  margin-top: 0.15em;
+  margin-bottom: 0.35em;
+  text-align: center;
+}
+
+.nextra-content :where(h2) {
+  letter-spacing: -0.021em;
+  font-weight: 600;
+  color: var(--apple-text);
+  font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem);
+  line-height: 1.1;
+  margin-top: 1.4em;
+  margin-bottom: 0.45em;
+}
+
+/* Nextra adds `nx-border-b` on headings — remove the rule line (do not clear box-shadow; some builds use it) */
+.nextra-content :is(h2, h3, h4, h5, h6) {
+  border-bottom-width: 0 !important;
+  border-bottom-style: none !important;
+  border-bottom-color: transparent !important;
+}
+
+.nextra-content :where(h3, h4) {
+  letter-spacing: -0.018em;
+  font-weight: 600;
+  color: var(--apple-text);
+  font-size: clamp(1.125rem, 1rem + 0.35vw, 1.375rem);
+  line-height: 1.2;
+  margin-top: 1.25em;
+  margin-bottom: 0.4em;
+}
+
+.nextra-content :where(h5, h6) {
+  letter-spacing: -0.012em;
+  font-weight: 600;
+  color: var(--apple-text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.35;
+  margin-top: 1rem;
+  margin-bottom: 0.35em;
+}
+
+/* Lead paragraph after a page title (h1 + p) — centered like apple.com hero copy */
+.nextra-content h1 + p {
+  text-align: center;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+.nextra-content :where(a) {
+  color: var(--apple-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  transition: color 0.15s ease;
+}
+
+.nextra-content :where(a:hover) {
+  color: var(--apple-link-hover);
+}
+
+.nextra-content :where(blockquote) {
+  border-left: 4px solid var(--apple-border);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: var(--apple-text-secondary);
+  font-style: normal;
+}
+
+.nextra-content :where(hr) {
+  border: none;
+  border-top: 1px solid var(--apple-border-subtle);
+  margin: 2rem 0;
+}
+
+.nextra-content :where(table) {
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.nextra-content :where(th, td) {
+  border: 1px solid var(--apple-border-subtle);
+  padding: 0.5rem 0.75rem;
+}
+
+.nextra-content :where(th) {
+  background: var(--apple-code-bg);
+  font-weight: 600;
+  text-align: left;
+  color: var(--apple-text);
+}
+
+.nextra-content :where(td) {
+  color: var(--apple-text-secondary);
+}
+
+.nextra-content :where(:not(pre) > code) {
+  font-size: 0.9em;
+  background: var(--apple-code-bg) !important;
+  color: var(--apple-text) !important;
+  border: 1px solid var(--apple-border-subtle);
+  border-radius: 0.35rem;
+  padding: 0.15em 0.4em;
+}
+
+html.light .nextra-content :where(:not(pre) > code) {
+  border-color: var(--apple-border);
+}
+
+.nextra-content pre {
+  border-radius: 0.75rem !important;
+  border: 1px solid var(--apple-border-subtle) !important;
+  background-color: var(--apple-code-bg) !important;
+  box-shadow: var(--apple-shadow);
+}
+
+html.light .nextra-content pre {
+  border-color: var(--apple-border) !important;
+  background-color: var(--apple-surface) !important;
+}
+
+/* Global nav — Apple-style: charcoal strip (#1d1d1f), centered row, ~12px links */
+.nextra-nav-container {
+  border-bottom: 1px solid var(--apple-nav-border) !important;
+}
+
+.nextra-nav-container-blur {
+  background-color: var(--apple-nav-chrome-fade) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
+}
+
+html.light .nextra-nav-container-blur {
+  background-color: rgba(251, 251, 253, 0.86) !important;
+}
+
+.nextra-nav-container nav {
+  justify-content: center !important;
+  column-gap: 1.35rem !important;
+  row-gap: 0.35rem !important;
+  flex-wrap: wrap !important;
+  max-width: 100% !important;
+  padding-left: max(env(safe-area-inset-left), 1rem) !important;
+  padding-right: max(env(safe-area-inset-right), 1rem) !important;
+}
+
+/* Nextra pins the logo with auto margin — center the whole group instead */
+.nextra-nav-container nav .ltr\:nx-mr-auto,
+.nextra-nav-container nav .rtl\:nx-ml-auto {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.nextra-nav-container nav a,
+.nextra-nav-container nav button {
+  font-size: 0.75rem !important;
+  line-height: 1 !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.012em;
+}
+
+.nextra-nav-container nav a {
+  padding: 0.35rem 0.2rem !important;
+}
+
+.nextra-nav-container nav .nextra-search {
+  min-width: 10rem !important;
+  max-width: 14rem;
+}
+
+.nextra-nav-container nav .nextra-search input {
+  font-size: 0.75rem !important;
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.35rem !important;
+}
+
+.nextra-nav-container nav img {
+  max-height: 1.15rem;
+  width: auto;
+}
+
+.nextra-nav-container nav .apple-nav-home-icon {
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  display: block;
+  align-self: center;
+  opacity: 0.92;
+}
+
+.nextra-nav-container nav .apple-wordmark {
+  font-size: 0.75rem !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Nextra uses fixed top-16 (4rem) for sticky TOC/sidebar; match thinner bar */
+@media (min-width: 768px) {
+  aside.nextra-sidebar-container.md\:nx-top-16 {
+    top: var(--nextra-navbar-height, 2.75rem) !important;
+  }
+}
+
+nav.nextra-toc .nx-sticky.nx-top-16 {
+  top: calc(var(--nextra-navbar-height, 2.75rem) + 0.35rem) !important;
+}
+
+/* Sidebar column surface — avoid targeting every `.nx-bg-white` descendant (breaks menus / portaled UI) */
+aside.nextra-sidebar-container {
+  background-color: var(--apple-bg) !important;
+}
+
+/* Sidebar bottom strip (theme / locale): same as page — no card edge */
+aside.nextra-sidebar-container .nx-sticky.nx-bottom-0 {
+  background-color: var(--apple-bg) !important;
+  box-shadow: none !important;
+  border-top-color: transparent !important;
+  border-top-width: 0 !important;
+}
+
+/* TOC meta row (edit link / feedback) — same surface as page */
+nav.nextra-toc div.nx-sticky.nx-bottom-0,
+nav.nextra-toc div.nx-mt-8.nx-border-t.nx-pt-8 {
+  background-color: var(--apple-bg) !important;
+  box-shadow: none !important;
+  border-top-color: transparent !important;
+}
+
+aside.nextra-sidebar-container a {
+  border-radius: 0.35rem;
+}
+
+aside.nextra-sidebar-container a:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+html.light aside.nextra-sidebar-container a:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.apple-sidebar-separator {
+  margin: 0.5rem 0;
+  padding: 0.45rem 0.5rem;
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--apple-text-tertiary);
+  background: var(--apple-surface);
+  border-radius: 0.25rem;
+}
+
+html.light .apple-sidebar-separator {
+  background: var(--apple-border-subtle);
+  color: var(--apple-text-tertiary);
+}
+
+.nextra-toc {
+  font-size: 0.8125rem;
+}
+
+.nextra-toc a {
+  color: var(--apple-text-secondary);
+}
+
+.nextra-toc a:hover,
+.nextra-toc li.active a {
+  color: var(--apple-link) !important;
+}
+
+footer {
+  background-color: var(--apple-surface) !important;
+  border-top: 1px solid var(--apple-border) !important;
+}
+
+.apple-footer-text {
+  color: var(--apple-text-secondary);
+  font-size: 0.8125rem;
+  letter-spacing: -0.01em;
+}
+
+.nextra-search input {
+  border-radius: 0.75rem !important;
+  background: var(--apple-surface) !important;
+  border: 1px solid var(--apple-border) !important;
+  color: var(--apple-text) !important;
+}
+
+html.light .nextra-search input {
+  background: var(--apple-code-bg) !important;
+  border-color: var(--apple-border-subtle) !important;
+  color: var(--apple-text) !important;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family:
+    ui-monospace,
+    "SF Mono",
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace !important;
+}
+
+nav a,
+aside a {
+  letter-spacing: -0.011em;
+}
+
+.apple-wordmark {
+  color: var(--apple-link);
+  letter-spacing: 0.06em;
+}
+
+/* Prev/next row at bottom of docs */
+.nextra-content ~ div .nx-text-gray-600,
+.nextra-content ~ div .nx-text-gray-600.md\:nx-text-lg {
+  color: var(--apple-text-secondary) !important;
+}
+
+.nextra-content ~ div .hover\:nx-text-primary-600:hover {
+  color: var(--apple-link-hover) !important;
+}
+
+/*
+ * next-themes removes `dark` for a frame before re-adding it. Nextra’s stylesheet
+ * (loaded after this file) sets plain `body` to white and can set the nav blur to
+ * light chrome without `html.dark`. These selectors stay above plain `body` and
+ * `.nextra-nav-container-blur` so they still win once specificity ties or Nextra
+ * only targets the no-class case with weaker rules.
+ */
+html:not(.light) body {
+  background-color: var(--apple-bg, #000000) !important;
+  color: var(--apple-text, #f5f5f7) !important;
+}
+
+html.light body {
+  background-color: var(--apple-bg, #f5f5f7) !important;
+  color: var(--apple-text, #1d1d1f) !important;
+}
+
+html:not(.light) #__next {
+  background-color: var(--apple-bg, #000000);
+  min-height: 100vh;
+}
+
+html.light #__next {
+  background-color: var(--apple-bg, #f5f5f7);
+  min-height: 100vh;
+}
+
+html:not(.light) .nextra-nav-container-blur {
+  background-color: var(--apple-nav-chrome-fade, rgba(29, 29, 31, 0.86)) !important;
+}
+
+html.light .nextra-nav-container-blur {
+  background-color: var(--apple-nav-chrome-fade, rgba(251, 251, 253, 0.9)) !important;
+}
+
+@media (max-width: 767px) {
+  html:not(.light) aside.nextra-sidebar-container {
+    background-color: var(--apple-bg, #000000) !important;
+  }
+
+  html.light aside.nextra-sidebar-container {
+    background-color: var(--apple-bg, #f5f5f7) !important;
+  }
+}
