@@ -20,18 +20,43 @@ const config: DocsThemeConfig = {
     link: 'https://github.com/mr7brown',
   },
   chat: {
-    link: 'https://www.linkedin.com/in/ashton-brown-mba-6000238a/',
+    link: 'https://www.linkedin.com/in/ashton-brown-6000238a/',
     icon: (
-       <img src="/static/linkedin.svg" color="red" alt="Ashton Brown logo" width="25em" />
+      <img
+        src="/static/linkedin.svg"
+        alt="LinkedIn"
+        className="apple-nav-social-icon"
+      />
     )
   },
   // docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   
 footer: {
     text: (
-      <span className="apple-footer-text">
-        Ashton G. Brown | {new Date().getFullYear()} ©{" "}
-      </span>
+      <div className="apple-footer-row">
+        <span className="apple-footer-text">
+          Copyright © {new Date().getFullYear()} Ashton G. Brown. All rights reserved.
+        </span>
+        <div className="apple-footer-location">
+          <svg
+            className="apple-footer-pin"
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden={true}
+          >
+            <path d="M12 21c-4-3.73-7-7.67-7-11.5a7 7 0 1 1 14 0c0 3.83-3 7.77-7 11.5z" />
+            <circle cx="12" cy="9.5" r="2.25" />
+          </svg>
+          <span className="apple-footer-location-text">Chicago, IL</span>
+        </div>
+      </div>
     ),
   },
 

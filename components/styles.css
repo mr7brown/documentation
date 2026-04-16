@@ -64,9 +64,16 @@ html[class~="dark"] {
   --apple-shadow: 0 2px 20px rgba(0, 0, 0, 0.55);
 }
 
+/*
+ * Nextra injects `:root { --nextra-navbar-height: 4rem }` in <head> (beats plain `html`).
+ * Apple-style product chrome: slim strip; slightly above minimum for readability.
+ */
+:root,
 html {
-  /* Nextra scroll-padding + layout; keep in sync with visual bar height */
-  --nextra-navbar-height: 2.75rem;
+  --nextra-navbar-height: 2.25rem !important;
+}
+
+html {
   font-family:
     "SF Pro Text",
     "SF Pro Display",
@@ -227,15 +234,26 @@ aside.nextra-sidebar-container .hover\:nx-text-gray-50:hover {
   line-height: 1.5;
 }
 
-.nextra-content :where(a) {
-  color: var(--apple-link);
+/*
+ * Inline links — Supabase-style underline + body-colored text.
+ * Nextra MDX anchors ship with `nx-text-primary-600` / `dark:nx-text-primary-600`
+ * (Tailwind); that stylesheet loads after this file, so `color` needs `!important`.
+ */
+article.nextra-content :where(a) {
+  color: inherit !important;
+  font-weight: 400;
+  text-decoration-line: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.15em;
-  transition: color 0.15s ease;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, currentColor 34%, transparent);
+  transition: text-decoration-color 0.18s ease;
+  padding-bottom: 2px;
 }
 
-.nextra-content :where(a:hover) {
-  color: var(--apple-link-hover);
+article.nextra-content :where(a:hover),
+article.nextra-content :where(a:focus-visible:hover) {
+  color: inherit !important;
+  text-decoration-color: currentColor;
 }
 
 .nextra-content :where(blockquote) {
@@ -298,7 +316,7 @@ html.light .nextra-content pre {
   background-color: var(--apple-surface) !important;
 }
 
-/* Global nav — Apple-style: charcoal strip (#1d1d1f), centered row, ~12px links */
+/* Global nav — Apple-style: charcoal strip (#1d1d1f), centered row, compact height */
 .nextra-nav-container {
   border-bottom: 1px solid var(--apple-nav-border) !important;
 }
@@ -316,12 +334,12 @@ html.light .nextra-nav-container-blur {
 
 .nextra-nav-container nav {
   justify-content: center !important;
-  column-gap: 1.35rem !important;
-  row-gap: 0.35rem !important;
+  column-gap: 1.15rem !important;
+  row-gap: 0.25rem !important;
   flex-wrap: wrap !important;
   max-width: 100% !important;
-  padding-left: max(env(safe-area-inset-left), 1rem) !important;
-  padding-right: max(env(safe-area-inset-right), 1rem) !important;
+  padding-left: max(env(safe-area-inset-left), 0.875rem) !important;
+  padding-right: max(env(safe-area-inset-right), 0.875rem) !important;
 }
 
 /* Nextra pins the logo with auto margin — center the whole group instead */
@@ -340,7 +358,7 @@ html.light .nextra-nav-container-blur {
 }
 
 .nextra-nav-container nav a {
-  padding: 0.35rem 0.2rem !important;
+  padding: 0.2rem 0.18rem !important;
 }
 
 .nextra-nav-container nav .nextra-search {
@@ -350,13 +368,47 @@ html.light .nextra-nav-container-blur {
 
 .nextra-nav-container nav .nextra-search input {
   font-size: 0.75rem !important;
-  padding-top: 0.35rem !important;
-  padding-bottom: 0.35rem !important;
+  padding-top: 0.28rem !important;
+  padding-bottom: 0.28rem !important;
+}
+
+/*
+ * Nextra’s default <kbd> (⌘ K) is tall (nx-h-5 + nx-my-1.5) vs our compact search
+ * input. Keep the hint, but shrink and center it in the field.
+ */
+.nextra-search kbd {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.125rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  height: 1rem !important;
+  min-height: 0 !important;
+  padding: 0 0.3rem !important;
+  font-size: 0.5625rem !important;
+  line-height: 1 !important;
+  border-radius: 0.25rem !important;
 }
 
 .nextra-nav-container nav img {
-  max-height: 1.15rem;
+  max-height: 1.1rem;
   width: auto;
+}
+
+.nextra-nav-container nav .apple-nav-social-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  max-height: 1.125rem;
+  object-fit: contain;
+  display: block;
+}
+
+/* linkedin.svg is white-filled for dark chrome; invert on light so it matches GitHub / nav type */
+html.light .nextra-nav-container nav .apple-nav-social-icon {
+  filter: invert(1);
 }
 
 .nextra-nav-container nav .apple-nav-home-icon {
@@ -376,12 +428,12 @@ html.light .nextra-nav-container-blur {
 /* Nextra uses fixed top-16 (4rem) for sticky TOC/sidebar; match thinner bar */
 @media (min-width: 768px) {
   aside.nextra-sidebar-container.md\:nx-top-16 {
-    top: var(--nextra-navbar-height, 2.75rem) !important;
+    top: var(--nextra-navbar-height, 2.25rem) !important;
   }
 }
 
 nav.nextra-toc .nx-sticky.nx-top-16 {
-  top: calc(var(--nextra-navbar-height, 2.75rem) + 0.35rem) !important;
+  top: calc(var(--nextra-navbar-height, 2.25rem) + 0.3rem) !important;
 }
 
 /* Sidebar column surface — avoid targeting every `.nx-bg-white` descendant (breaks menus / portaled UI) */
@@ -453,7 +505,46 @@ footer {
   border-top: 1px solid var(--apple-border) !important;
 }
 
+/* Nextra centers footer on small viewports; keep the footer column starting at the left gutter */
+footer hr + div.nx-mx-auto.nx-flex {
+  justify-content: flex-start !important;
+}
+
+/* One row: copyright left, pin + city right (same line at typical widths) */
+.apple-footer-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+}
+
 .apple-footer-text {
+  min-width: 0;
+  text-align: left;
+  color: var(--apple-text-secondary);
+  font-size: 0.8125rem;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.apple-footer-location {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  justify-self: end;
+}
+
+.apple-footer-pin {
+  flex-shrink: 0;
+  color: var(--apple-text-secondary);
+  opacity: 0.92;
+}
+
+.apple-footer-location-text {
   color: var(--apple-text-secondary);
   font-size: 0.8125rem;
   letter-spacing: -0.01em;
